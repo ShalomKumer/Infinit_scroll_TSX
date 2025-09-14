@@ -9,7 +9,7 @@ type prop = {
   img: Card;
 };
 const CreatCard: React.FC<prop> = ({ img }) => {
-  const { id, alt, src } = img;
+  const { alt, src } = img;
 
   return (
     <>

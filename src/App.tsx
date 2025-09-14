@@ -1,6 +1,6 @@
 import HomePage from './components/HomePage'
 import './App.css'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import { SocialIcon } from 'react-social-icons'
 function App() {
 
