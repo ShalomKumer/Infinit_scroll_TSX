@@ -4,6 +4,7 @@ import { CiShare2 } from "react-icons/ci";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import GenProfile from "./GenPropile";
 import "./CardStyles.css";
+
 type prop = {
   img: Card;
 };

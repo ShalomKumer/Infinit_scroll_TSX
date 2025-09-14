@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import type { Card } from "./CardType";
 import CreatCard from "./CreatCard";
 
-const LIMIT = 7;
-const THRESHOLD = 250; // כמה פיקסלים לפני התחתית להתחיל טעינה
+const LIMIT = 5;
+const THRESHOLD = 250; 
 
 const HomePage: React.FC = () => {
   const [imgList, setImgList] = useState<Card[]>([]);
