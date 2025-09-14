@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import type { Card } from "./CardType";
 import CreatCard from "./CreatCard";
 
-const LIMIT = 5;
+const LIMIT = 7;
 const THRESHOLD = 250; // כמה פיקסלים לפני התחתית להתחיל טעינה
 
 const HomePage: React.FC = () => {
@@ -27,28 +27,26 @@ const HomePage: React.FC = () => {
       const data = await res.json();
 
       const batch: Card[] = data.map((card: any) => ({
-        id: String(card.id) + "-" + pageNum, // key ייחודי גם בין עמודים
+        id: String(card.id) + "-" + pageNum,
         alt: card.author,
         src: card.download_url,
       }));
 
       setImgList(prev => [...prev, ...batch]);
-      // אם חזר פחות מה־LIMIT — כנראה אין עוד
       setHasMore(batch.length === LIMIT);
-    } catch (e) {
+    } 
+    catch (e) {
       setError("אירעה שגיאה בטעינת נתונים");
-    } finally {
+    } 
+    finally {
       setLoading(false);
       inFlightRef.current = false;
     }
   }
-
-  // טעינה ראשונית
   useEffect(() => {
-    fetchPage(1);
-  }, []);
+    fetchPage(page);
+  }, [])
 
-  // מאזין לגלילה: כשמתקרבים לתחתית – טוענים עמוד נוסף
   useEffect(() => {
     let ticking = false;
 
