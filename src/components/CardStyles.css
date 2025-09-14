@@ -1,0 +1,74 @@
+/* כרטיס הפוסט עצמו, חלק תחתון */
+.post-card {
+  background: #ffffff;
+  color: #111827;
+
+  /* אין גבול/רדיוס/צל כי זה בעוטף */
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  padding: 12px;
+  max-width: none;
+  margin: 0;
+}
+
+/* מרווח עדין בין ההדר לתמונה */
+.post-card > .pick {
+  margin-top: 10px;
+}
+
+/* תמונה */
+.post-card .pick img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+/* אזור תחתון – אייקונים + טקסט */
+.post-card .bottom,
+.post-card .buttom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+}
+
+/* אייקונים */
+.post-card .icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  color: #6b7280;
+}
+
+.post-card .icons svg {
+  cursor: pointer;
+  transition: transform .12s ease, color .12s ease, opacity .12s ease;
+}
+
+.post-card .icons svg:hover {
+  transform: translateY(-1px);
+  color: #111827;
+}
+
+/* טקסט alt */
+.post-card .alt p {
+  margin: 0;
+  font-size: 14px;
+  color: #374151;
+  text-align: end;
+}
+
+/* רספונסיביות */
+@media (max-width: 480px) {
+  .post { border-radius: 12px; }
+  .post-card { padding: 10px; }
+  .post-card .icons { font-size: 18px; }
+}

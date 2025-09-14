@@ -1,16 +1,31 @@
+/* עוטף שמכיל גם header וגם card */
+.post {
+  background: #fff;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(17,24,39,.06);
+  max-width: 640px;
+  width: 100%;
+  margin: 12px auto;
+  overflow: hidden; /* מחבר פינות */
+}
+
+/* Header למעלה */
 .post-header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* ימין: פרופיל, שמאל: נקודות */
+  justify-content: space-between;
   gap: 12px;
   padding: 10px 12px;
-  background: #f9fafb; 
-  border: 1.5px solid black;           /* רקע בהיר */
-  color: #111827;                 /* טקסט כהה */
+  background: #ffffff;
+  color: #111827;
+
+  /* מחובר לעוטף – אין מסגרת נפרדת */
+  border: none;
   border-bottom: 1px solid #e5e7eb;
-  border-top-right-radius:12px;
-  border-top-left-radius: 12px;
-  width: 80vh;
+  border-radius: 0;
+  width: 100%;
 }
 
 /* צד ימין */
@@ -31,8 +46,8 @@
 }
 
 .avatar {
-  width:8vh;
-  height: 8vh;
+  width: 48px;
+  height: 48px;
   border-radius: 9999px;
   object-fit: cover;
   display: block;
@@ -62,8 +77,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 8vh;
-  height: 8vh;
+  width: 48px;
+  height: 48px;
   border-radius: 9999px;
   background: transparent;
   border: none;

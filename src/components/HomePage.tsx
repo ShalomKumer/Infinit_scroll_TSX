@@ -4,32 +4,43 @@ import CreatCard from "./CreatCard";
 
 const HomePage: React.FC = () => {
   const [imgList, setImgList] = useState<Card[]>([]);
-  let page = 1;
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      let res = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=7`);
-      let data = await res.json();
+      try {
+        let res = await fetch(
+          `https://picsum.photos/v2/list?page=${page}&limit=5`
+        );
+        let data = await res.json();
 
-      const cards: Card[] = data.map((card: any) => ({
-        id: card.id,
-        alt: card.author,
-        src: card.download_url, 
-      }));
+        const cards: Card[] = data.map((card: any) => ({
+          id: card.id,
+          alt: card.author,
+          src: card.download_url,
+        }));
 
-      setImgList(cards);
-      console.log("CARDS", cards);
+        setImgList(cards);
+        console.log("CARDS", cards);
+      } catch (err) {
+        return <h1>Sorry, can't fetch Data</h1>;
+      }
     };
     fetchData();
   }, []);
 
-  return( 
-  <>
-    {imgList.map((card) => {
-        <CreatCard img={card} />
-    })}
-  </>
-  )
+  useEffect(() => {
+    
+  }, []);
+
+  return (
+    <>
+      {imgList.map((card) => (
+        <CreatCard key={card.id} img={card} />
+      ))}
+    </>
+  );
 };
 
 export default HomePage;

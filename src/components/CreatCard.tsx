@@ -3,6 +3,7 @@ import { FcLike } from "react-icons/fc";
 import { CiShare2 } from "react-icons/ci";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import GenProfile from "./GenPropile";
+import "./CardStyles.css";
 type prop = {
   img: Card;
 };
@@ -11,19 +12,21 @@ const CreatCard: React.FC<prop> = ({ img }) => {
 
   return (
     <>
-      <div className="container">
-        <GenProfile /> 
-        <div className="pick">
-          <img src={src} alt={alt} />
-        </div>
-        <div className="buttom">
-          <div className="icons">
-            <FcLike />
-            <CiShare2 />
-            <HiOutlineDotsVertical />
+      <div className="post">
+        <GenProfile />
+        <div className="post-card">
+          <div className="pick">
+            <img src={src} alt={alt} />
           </div>
-          <div className="alt">
-            <p>{alt}</p>
+          <div className="bottom">
+            <div className="icons">
+              <FcLike />
+              <CiShare2 />
+              <HiOutlineDotsVertical />
+            </div>
+            <div className="alt">
+              <p>{alt}</p>
+            </div>
           </div>
         </div>
       </div>
